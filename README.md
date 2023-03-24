@@ -2,6 +2,25 @@
 ## Abstract
 This project proposes a design of an attribute-based access control (ABAC) model for microservice security management using an API gateway. Microservices have become a popular architectural style for developing complex applications, but managing security in a microservice environment is challenging. ABAC is a flexible and dynamic access control model that can provide fine-grained access control based on user attributes. In this project, we present a design of an ABAC model that integrates with an API gateway to manage access control for microservices. The proposed model uses a policy engine to evaluate access requests based on the user attributes and service attributes. A set of attributes that are used to make access control decisions. These attributes may be gathered from various sources, including user profiles, device information, and other metadata. We also present a case study that demonstrates the effectiveness of our proposed model in managing access control for microservices. The results show that our model can provide fine-grained access control and improve the overall security of microservice environments.
 ## Scenario 
+
+A Financial Company is a large financial institution that deals with a vast amount of sensitive financial information on a daily basis. They have recently identified the need to improve their access control system to ensure the confidentiality, integrity, and availability of their data. 
+
+### Assets need to be protected
+- Company sensitive data
+- Custommer infomation
+
+### Security goal
+- Only authorized parties
+- Lowest authority
+
+## Solution
+
+RBAC or ABAC
+
+RBAC still a widely used access control model in many organizations. However, there are some limitations to RBAC  that may make it less suitable for this scenarios. RBAC policies are typically based on a user's role and do not consider other factors, such as the user's location, time of day, or the sensitivity of the data being accessed. This can result in overprivileged access, where users are given more access rights than they need to perform their job functions, creating potential security risks. They have decided to implement ABAC to achieve this goal.
+
+
+
 A financial institution has an API gateway that exposes customer account information to authorized users. The financial institution may have different types of users with different levels of access to customer account information, such as customer service representatives, financial advisors, and executives.
 
 The financial institution could use ABAC to define access control policies based on user attributes such as job role, department, and location. For example, the financial institution could define an access control policy that allows customer service representatives to view basic customer account information, such as account balance and transaction history. The policy could also include restrictions on which customer accounts each representative can access based on the representative's department or location.
