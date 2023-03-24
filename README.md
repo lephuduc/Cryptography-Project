@@ -1,16 +1,21 @@
 # ABAC A Design of Attribute-based Access Control Model for Microservice Security Manager Using API Gateway
 ## Abstract
 This project proposes a design of an attribute-based access control (ABAC) model for microservice security management using an API gateway. Microservices have become a popular architectural style for developing complex applications, but managing security in a microservice environment is challenging. ABAC is a flexible and dynamic access control model that can provide fine-grained access control based on user attributes. In this project, we present a design of an ABAC model that integrates with an API gateway to manage access control for microservices. The proposed model uses a policy engine to evaluate access requests based on the user attributes and service attributes. A set of attributes that are used to make access control decisions. These attributes may be gathered from various sources, including user profiles, device information, and other metadata. We also present a case study that demonstrates the effectiveness of our proposed model in managing access control for microservices. The results show that our model can provide fine-grained access control and improve the overall security of microservice environments.
-## Scenario 
 
+## Scenario 
 A Financial Company is a large financial institution that deals with a vast amount of sensitive financial information on a daily basis. They have recently identified the need to improve their access control system to ensure the confidentiality, integrity, and availability of their data. 
 
 ### Assets need to be protected
 - Company sensitive data
 - Custommer infomation
-
+### Related-Party 
+- Admin
+- Advisor
+- Employees
+- Customer
+- Adversaries
 ### Security goal
-- Only authorized parties
+- Access only by authorized parties
 - Lowest authority
 
 ## Solution
@@ -31,6 +36,14 @@ Finally, the financial institution could define an access control policy that al
 
 By using ABAC to define access control policies based on user attributes, the financial institution can ensure that only authorized users with the appropriate permissions and clearances can access customer account information, reducing the risk of unauthorized access and data breaches.
 
+## Resources
+|Resources| |
+| :------------ |:---------------|
+| Cloud | Deploy server, database storage |
+| Database |  MySQL |
+| Libraries | Flask, Flask-abac | 
+| Hardware | Intel core I5, RAM 16GB |
+| Programing languages | Python, HTML, CSS, Javascript |
 ## Contributor
 
 | Full name  | ID  | Github |
