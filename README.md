@@ -49,8 +49,8 @@ By using ABAC to define access control policies based on user attributes, the fi
 | Programing languages | Python, HTML, CSS, Javascript |
 ## Contributor
 
-| Full name  | ID  | Github |
-| :------------ |:---------------:| :-----:|
-| Le Phu Duc    | 21521962        | [Jinn](https://github.com/lephuduc) |
-| Le Xuan Hoang | 21522090        |  [Enkai](https://github.com/LaiLaK918)  |
-| Tran Cong Thanh  | 21521450     |    [PkNova](https://github.com/PkNova76) |
+| Full name  | ID  | Github | Works | 
+| :------------ |:---------------:| :-----------------------------------: | :----------------------- |
+| Le Phu Duc    | 21521962        | [Jinn](https://github.com/lephuduc)   | :----------------------- |
+| Le Xuan Hoang | 21522090        | [Enkai](https://github.com/LaiLaK918) | :----------------------- |
+| Tran Cong Thanh  | 21521450     | [PkNova](https://github.com/PkNova76) | :----------------------- |
