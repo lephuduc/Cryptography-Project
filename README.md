@@ -24,7 +24,10 @@ RBAC or ABAC
 
 RBAC still a widely used access control model in many organizations. However, there are some limitations to RBAC  that may make it less suitable for this scenarios. RBAC policies are typically based on a user's role and do not consider other factors, such as the user's location, time of day, or the sensitivity of the data being accessed. This can result in overprivileged access, where users are given more access rights than they need to perform their job functions, creating potential security risks. They have decided to implement ABAC to achieve this goal.
 
-![image](https://user-images.githubusercontent.com/88936785/227706076-dddc61bc-0c42-45f5-b0e2-5a20f8a6f266.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/88936785/227706076-dddc61bc-0c42-45f5-b0e2-5a20f8a6f266.png">
+<p align="center">Figure 1. ABAC and API gateway model</p>
+</p>
 
 A financial institution has an API gateway that exposes customer account information to authorized users. The financial institution may have different types of users with different levels of access to customer account information, such as customer service representatives, financial advisors, and executives.
 
