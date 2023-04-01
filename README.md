@@ -20,7 +20,7 @@ A Financial Company is a large financial institution that deals with a vast amou
 
 ## Solution
 
-RBAC or ABAC
+RBAC or ABAC?
 
 RBAC still a widely used access control model in many organizations. However, there are some limitations to RBAC  that may make it less suitable for this scenarios. RBAC policies are typically based on a user's role and do not consider other factors, such as the user's location, time of day, or the sensitivity of the data being accessed. This can result in overprivileged access, where users are given more access rights than they need to perform their job functions, creating potential security risks. They have decided to implement ABAC to achieve this goal.
 
