@@ -17,7 +17,7 @@ def login():
             error_msg = "Invalid password or username"
             return render_template('login.html',error = error_msg)
         else:
-            return render_template('home.html')
+            return redirect(url_for('home'))
     return render_template('login.html')
 
 @app.route('/register',methods=['GET','POST'])
@@ -29,7 +29,7 @@ def register():
         error = submit_user(username,password,email)
         if error!=None:
              return render_template('register.html',error = error)
-        return render_template('register.html',anouce = "Resgiter successfully")
+        return render_template('login.html',anouce = "Resgiter successfully")
     return render_template('register.html')
 @app.route('/home')
 def home():
