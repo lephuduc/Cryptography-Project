@@ -6,7 +6,7 @@ This project proposes a design of an attribute-based access control (ABAC) model
 A Financial Company is a large financial institution that deals with a vast amount of sensitive financial information on a daily basis. One day, a new employee is hired to work in your department, but they are not properly vetted or their background check is incomplete. As a result, this employee has access to all of the company's data, including sensitive information that should only be accessible to a select few. They may not have malicious intent, but they may accidentally leak sensitive information, share it with unauthorized individuals, or even steal it for personal gain.
 <p align="center">
 <img src="https://user-images.githubusercontent.com/88520787/229337926-b4c0acfb-9a3b-4e43-b58d-ca2e520934fb.png">
-<p align="center">Figure 1. Company doesn't have any acess control </p>
+<p align="center">Figure 1. Company doesn't have any access control </p>
 </p>
 Without proper access management, this situation could have disastrous consequences for the company, including reputation damage, legal liabilities, and financial losses. The company may also face regulatory penalties for failing to adequately protect its data.
 They have recently identified the need to improve their access control system to ensure the confidentiality, integrity, and availability of their data.
