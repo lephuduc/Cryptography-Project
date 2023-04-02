@@ -6,7 +6,7 @@ This project proposes a design of an attribute-based access control (ABAC) model
 A Financial Company is a large financial institution that deals with a vast amount of sensitive financial information on a daily basis. One day, a new employee is hired to work in your department, but they are not properly vetted or their background check is incomplete. As a result, this employee has access to all of the company's data, including sensitive information that should only be accessible to a select few. They may not have malicious intent, but they may accidentally leak sensitive information, share it with unauthorized individuals, or even steal it for personal gain.
 <p align="center">
 <img src="https://user-images.githubusercontent.com/88520787/229337926-b4c0acfb-9a3b-4e43-b58d-ca2e520934fb.png">
-<p align="center">Figure 1. Scenario </p>
+<p align="center">Figure 1. Company doesn't have any access control </p>
 </p>
 Without proper access management, this situation could have disastrous consequences for the company, including reputation damage, legal liabilities, and financial losses. The company may also face regulatory penalties for failing to adequately protect its data.
 They have recently identified the need to improve their access control system to ensure the confidentiality, integrity, and availability of their data.
@@ -49,7 +49,7 @@ By using ABAC to define access control policies based on user attributes, the fi
 |Resources| |
 | :------------ |:---------------|
 | Cloud | Deploy server, database storage |
-| Database |  MySQL |
+| Database |  SQLite3 |
 | Libraries | Flask, Flask-abac | 
 | Hardware | Intel core I5, RAM 16GB |
 | Programing languages | Python, HTML, CSS, Javascript |
@@ -60,3 +60,8 @@ By using ABAC to define access control policies based on user attributes, the fi
 | Le Phu Duc    | 21521962        | [Jinn](https://github.com/lephuduc)   |  |
 | Le Xuan Hoang | 21522090        | [Enkai](https://github.com/LaiLaK918) |  |
 | Tran Cong Thanh  | 21521450     | [PkNova](https://github.com/PkNova76) |  |
+
+# References
+[1] Pethuru Raj; Skylab Vanga; Akshita Chaudhary, "Microservices Security," in Cloud-native Computing: How to Design, Develop, and Secure Microservices and Event-Driven Applications , IEEE, 2023, pp.289-298, doi: 10.1002/9781119814795.ch14.
+
+[2] Y. Zhu, R. Yu, D. Ma and W. Cheng-Chung Chu, "Cryptographic Attribute-Based Access Control (ABAC) for Secure Decision Making of Dynamic Policy With Multiauthority Attribute Tokens," in IEEE Transactions on Reliability, vol. 68, no. 4, pp. 1330-1346, Dec. 2019, doi: 10.1109/TR.2019.2948713.
