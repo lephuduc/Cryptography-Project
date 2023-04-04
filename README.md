@@ -5,10 +5,9 @@ This project proposes a design of an attribute-based access control (ABAC) model
 ## Scenario 
 A Financial Company is a large financial institution that deals with a vast amount of sensitive financial information on a daily basis. One day, a new employee is hired to work in your department, but they are not properly vetted or their background check is incomplete. As a result, this employee has access to all of the company's data, including sensitive information that should only be accessible to a select few. They may not have malicious intent, but they may accidentally leak sensitive information, share it with unauthorized individuals, or even steal it for personal gain.
 <p align="center">
-<img src="https://user-images.githubusercontent.com/88520787/229661810-43c7e4db-3f76-484e-8e91-ec9ab59b6615.png">
+<img src="https://user-images.githubusercontent.com/88520787/229337926-b4c0acfb-9a3b-4e43-b58d-ca2e520934fb.png">
 <p align="center">Figure 1. Company doesn't have any access control </p>
 </p>
-
 Without proper access management, this situation could have disastrous consequences for the company, including reputation damage, legal liabilities, and financial losses. The company may also face regulatory penalties for failing to adequately protect its data.
 They have recently identified the need to improve their access control system to ensure the confidentiality, integrity, and availability of their data.
 
@@ -32,7 +31,7 @@ RBAC or ABAC?
 RBAC still a widely used access control model in many organizations. However, there are some limitations to RBAC  that may make it less suitable for this scenarios. RBAC policies are typically based on a user's role and do not consider other factors, such as the user's location, time of day, or the sensitivity of the data being accessed. This can result in overprivileged access, where users are given more access rights than they need to perform their job functions, creating potential security risks. They have decided to implement ABAC to achieve this goal.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/88520787/229661810-43c7e4db-3f76-484e-8e91-ec9ab59b6615.png">
+<img src="https://user-images.githubusercontent.com/62160332/229662052-3f0eba43-7a66-44f9-92ca-10c42687838a.png">
 <p align="center">Figure 2. ABAC and API gateway model</p>
 </p>
 
