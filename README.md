@@ -32,7 +32,7 @@ RBAC or ABAC?
 RBAC still a widely used access control model in many organizations. However, there are some limitations to RBAC  that may make it less suitable for this scenarios. RBAC policies are typically based on a user's role and do not consider other factors, such as the user's location, time of day, or the sensitivity of the data being accessed. This can result in overprivileged access, where users are given more access rights than they need to perform their job functions, creating potential security risks. They have decided to implement ABAC to achieve this goal.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/62160332/229662393-38eccda1-2806-4a39-b344-787eae4b69a2.png">
+<img src="https://user-images.githubusercontent.com/62160332/232737825-03f393ac-97f3-4551-8b84-b49f1ed1b538.png">
 <p align="center">Figure 2. ABAC and API gateway model</p>
 </p>
 
@@ -56,11 +56,11 @@ By using ABAC to define access control policies based on user attributes, the fi
 | Programing languages | Python, HTML, CSS, Javascript |
 ## Contributor
 
-| Full name  | ID  | Github | Job assignment | 
-| :------------ |:---------------:| :-----------------------------------: | :----------------------- |
-| Le Phu Duc    | 21521962        | [Jinn](https://github.com/lephuduc)   |  |
-| Le Xuan Hoang | 21522090        | [Enkai](https://github.com/LaiLaK918) |  |
-| Tran Cong Thanh  | 21521450     | [PkNova](https://github.com/PkNova76) |  |
+| Full name  | ID  | Github | Front-end | Cloud | WebAPI | ABAC | API Gateway | Slide | Presentation | 
+| :--------- |:---:|:-------:|:--------:|:-----:|:------:|:-----|:-----------:|:-----:|:------------:|
+| Le Xuan Hoang    |   21522090      | [Jinn](https://github.com/lephuduc)   |✅|✅||||||
+| Le Phu Duc | 21521962        | [Enkai](https://github.com/LaiLaK918) |   |✅|✅|✅|✅||✅|
+| Tran Cong Thanh  | 21521450     | [PkNova](https://github.com/PkNova76) |✅||✅|✅||✅||
 
 # References
 [1] Microservices Security. (n.d.). Part of Cloud-native Computing: How to Design, Develop, and Secure Microservices and Event-Driven Applications | Wiley-IEEE Press Books | IEEE Xplore. https://ieeexplore.ieee.org/document/9930705
