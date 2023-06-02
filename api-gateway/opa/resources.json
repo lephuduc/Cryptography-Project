@@ -1,0 +1,16 @@
+{
+    "resource_attributes" : {
+        "Product": {
+            "resource_type": "Product",
+            "resource_department": "sales",
+            "resource_location": "New York",
+            "update": ["admin","manager"]
+        },
+        "About": {
+            "resource_type": "Information",
+            "resource_department": "manager",
+            "resource_location": "New York",
+            "update": ["admin","manager"]
+        }
+    }
+}

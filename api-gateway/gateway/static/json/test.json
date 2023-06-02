@@ -1,0 +1,342 @@
+[
+    {
+        "id": "BS-01",
+        "title": "Best Seller 01",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Wave ring.webp) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 100
+    },
+    {
+        "id": "BS-02",
+        "title": "Best Seller 02",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 78
+    },
+    {
+        "id": "BS-03",
+        "title": "Best Seller 03",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring01.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 98
+    },
+    {
+        "id": "BS-04",
+        "title": "Best Seller 04",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring02.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 117
+    },
+    {
+        "id": "BS-05",
+        "title": "Best Seller 05",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring03.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 674
+    },
+    {
+        "id": "BS-06",
+        "title": "Best Seller 06",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring06.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 630
+    },
+    {
+        "id": "BS-07",
+        "title": "Best Seller 07",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring07.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 235
+    },
+    {
+        "id": "BS-08",
+        "title": "Best Seller 08",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring08.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 290
+    },
+    {
+        "id": "BS-09",
+        "title": "Best Seller 09",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring09.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 347
+    },
+    {
+        "id": "BS-10",
+        "title": "Best Seller 10",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring04.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 908
+    },
+    {
+        "id": "BS-11",
+        "title": "Best Seller 11",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring05.jpg) }}",
+        "category": {
+            "name": "Best Sellers",
+            "id": "best_sellers"
+        },
+        "price": 540
+    },
+    {
+        "id": "PC - 01",
+        "title": "Popular 01",
+        "image": "{{ url_for('static', filename=images/New arrivals/5.jpg) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 320
+    },
+    {
+        "id": "PC - 02",
+        "title": "Popular 02",
+        "image": "{{ url_for('static', filename=images/New arrivals/3.jpg) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 670
+    },
+    {
+        "id": "PC - 03",
+        "title": "Popular 03",
+        "image": "{{ url_for('static', filename=images/New arrivals/2.jpg) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 209
+    },
+    {
+        "id": "PC - 04",
+        "title": "Popular 04",
+        "image": "{{ url_for('static', filename=images/New arrivals/4.jpg) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 450
+    },
+    {
+        "id": "PC - 05",
+        "title": "Popular 05",
+        "image": "{{ url_for('static', filename=images/New arrivals/9.jpg) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 100
+    },
+    {
+        "id": "PC - 06",
+        "title": "Popular 06",
+        "image": "{{ url_for('static', filename=images/New arrivals/10.jpeg) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 107
+    },
+    {
+        "id": "PC - 07",
+        "title": "Popular 07",
+        "image": "{{ url_for('static', filename=images/New arrivals/16.webp) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 234
+    },
+    {
+        "id": "PC - 08",
+        "title": "Popular 08",
+        "image": "{{ url_for('static', filename=images/New arrivals/new2.avif) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 320
+    },
+    {
+        "id": "PC - 09",
+        "title": "Popular 09",
+        "image": "{{ url_for('static', filename=images/New arrivals/new3.avif) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 650
+    },
+    {
+        "id": "PC - 10",
+        "title": "Popular 10",
+        "image": "{{ url_for('static', filename=images/Populars/Bracelets1.webp) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 650
+    },
+    {
+        "id": "PC - 11",
+        "title": "Popular 11",
+        "image": "{{ url_for('static', filename=images/Populars/Bracelets2.webp) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 450
+    },
+    {
+        "id": "PC - 12",
+        "title": "Popular 12",
+        "image": "{{ url_for('static', filename=images/Populars/Bracelets1.webp) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 275
+    },
+    {
+        "id": "PC - 13",
+        "title": "Popular 13",
+        "image": "{{ url_for('static', filename=images/Populars/Bracelets2.webp) }}",
+        "category": {
+            "name": "Popular Categories",
+            "id": "popular_categories"
+        },
+        "price": 660
+    },
+    {
+        "id": "NA - 01",
+        "title": "New Arrivals 01",
+        "image": "{{ url_for('static', filename=images/Populars/Necklaces1.webp) }}",
+        "category": {
+            "name": "New Arrivals 01",
+            "id": "new_arrivals"
+        },
+        "price": 125
+    },
+    {
+        "id": "NA - 02",
+        "title": "New Arrivals 02",
+        "image": "{{ url_for('static', filename=images/Populars/Necklaces2.webp) }}",
+        "category": {
+            "name": "New Arrivals 02",
+            "id": "new_arrivals"
+        },
+        "price": 550
+    },
+    {
+        "id": "NA - 03",
+        "title": "New Arrivals 03",
+        "image": "{{ url_for('static', filename=images/Populars/Necklaces3.webp) }}",
+        "category": {
+            "name": "New Arrivals 03",
+            "id": "new_arrivals"
+        },
+        "price": 1000
+    },
+    {
+        "id": "NA - 04",
+        "title": "New Arrivals 04",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring.jpg) }}",
+        "category": {
+            "name": "New Arrivals 04",
+            "id": "new_arrivals"
+        },
+        "price": 560
+    },
+    {
+        "id": "NA - 05",
+        "title": "New Arrivals 05",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring01.jpg) }}",
+        "category": {
+            "name": "New Arrivals 05",
+            "id": "new_arrivals"
+        },
+        "price": 372
+    },
+    {
+        "id": "NA - 06",
+        "title": "New Arrivals 06",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring06.jpg) }}",
+        "category": {
+            "name": "New Arrivals 06",
+            "id": "new_arrivals"
+        },
+        "price": 170
+    },
+    {
+        "id": "NA - 07",
+        "title": "New Arrivals 07",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring08.jpg) }}",
+        "category": {
+            "name": "New Arrivals 07",
+            "id": "new_arrivals"
+        },
+        "price": 433
+    },
+    {
+        "id": "NA - 08",
+        "title": "New Arrivals 08",
+        "image": "{{ url_for('static', filename=images/Populars/Necklaces1.webp) }}",
+        "category": {
+            "name": "New Arrivals 08",
+            "id": "new_arrivals"
+        },
+        "price": 560
+    },
+    {
+        "id": "NA - 09",
+        "title": "New Arrivals 09",
+        "image": "{{ url_for('static', filename=images/Best Sellers/Ring.jpg) }}",
+        "category": {
+            "name": "New Arrivals 09",
+            "id": "new_arrivals"
+        },
+        "price": 452
+    },
+    {
+        "id": "NA - 10",
+        "title": "New Arrivals 10",
+        "image": "{{ url_for('static', filename=images/Populars/Necklaces1.webp) }}",
+        "category": {
+            "name": "New Arrivals 10",
+            "id": "new_arrivals"
+        },
+        "price": 373
+    }
+]
