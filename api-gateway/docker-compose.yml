@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  served_html_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/api-gateway
+    command: gunicorn3 --bind 0.0.0.0:8000 app:app
+  nginx:
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - served_html_service
+  opa:
+    ports:
+      - 8181:8181
+    build: 
+      context: ./opa
+    command: gunicorn3 --bind 0.0.0.0:8181 app:app
