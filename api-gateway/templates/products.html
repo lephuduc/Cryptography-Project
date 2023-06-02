@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelwery: Products</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/main.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- font awesome   -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+
+        <a href="./index.html" class="logo"> <i class="fas fa-gem"></i> Jelwery </a>
+    
+        <nav class="navbar">
+            <a href="{{ url_for('main_page') }}" class="active">Home</a>
+            <a href="{{ url_for('product_page') }}">Products</a>
+            <a href="{{ url_for('about_page') }}">About</a>
+            <a href="#arrivals">Arrivals</a>
+            <a href="./contact.html">Contact</a>
+            <div class="blog-container">
+                <a href="#blogs">Blogs</a>
+                <div class="multi-level">
+                    <span></span>
+                    <a href="./blog1.html"><button>Gem Obsessed</button></a>
+                    <a href="./blog2.html"><button>IDazzle</button></a>
+                    <a href="./blog3.html"><button>Rio Grande Blog</button></a>
+                </div>
+            </div>
+    
+        </nav>
+    
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <a href="./cart.html" class="fas fa-shopping-cart"></a>
+            <a href="./signin.html" class="fas fa-user"></a>
+        </div>
+    
+        <form action="" class="search-form">
+            <input type="search" placeholder="search here..." id="input-box">
+            <label for="input-box" class="fas fa-search"></label>
+        </form>
+    
+    </header>
+<!-- header section ends -->
+    <div class="wrapper">
+        <!-- <header class="header-mobile">
+            <a href="./index.html" class="logo">Jelwery</a>
+            <button class="open-menu" id="open-menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </header> -->
+        <aside>
+            <!-- <button class="close-menu" id="close-menu">
+                <i class="bi bi-x"></i>
+            </button>
+            <header>
+                <a href="./index.html" class="logo">Jelwery</a>
+            </header> -->
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <button id="all" class="button-menu button-category active"><i class="bi bi-hand-index-thumb-fill"></i> All products</button>
+                    </li>
+                    <li>
+                        <button id="best_sellers" class="button-menu button-category"><i class="bi bi-hand-index-thumb"></i> Best Sellers</button>
+                    </li>
+                    <li>
+                        <button id="popular_categories" class="button-menu button-category"><i class="bi bi-hand-index-thumb"></i> Popular Categories </button>
+                    </li>
+                    <li>
+                        <button id="new_arrivals" class="button-menu button-category"><i class="bi bi-hand-index-thumb"></i> New Arrivals </button>
+                    </li>
+                    <li>
+                        <a class="button-menu button-cart" href="./cart.html">
+                            <i class="bi bi-cart-fill"></i> Cart <span id="quantity" class="quantity">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="text-footer">Le Xuan Hoang</p>
+                <p class="text-footer">Le Phu Duc</p>
+                <p class="text-footer">Tran Cong Thanh</p>
+            </footer>
+
+        </aside>
+        <main>
+            <h2 class="main-title" id="main-title">All products</h2>
+            <div id="container-products" class="container-products" data-aos="zoom-in">
+                <!--JS for Cart-->
+            </div>
+        </main>
+    </div>
+    
+
+    <!-- JS  -->
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="{{ url_for('static',filename='scripts/main.js') }}"></script>
+    <script src="{{ url_for('static',filename='scripts/menu_product.js') }}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+
+  });
+</script>
+</body>
+</html>
