@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request, render_template, redirect, url_for, s
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
-from DatabaseQuery import validate_password,submit_user
+from RequestAPI import validate_password,submit_user
 
 
 load_dotenv()
@@ -18,7 +18,7 @@ def login():
             error_msg = "Invalid password or username"
             return render_template('login.html',error = error_msg)
         else:
-            return redirect(url_for('home'))
+            return redirect(url_for('main_page'))
     return render_template('login.html')
 
 @app.route('/register',methods=['GET','POST'])
@@ -28,10 +28,10 @@ def register():
         username,password,retype_password,email = request.form["username"],request.form["password"],request.form["retype_password"],request.form["email"]
         if retype_password!=password:
             return render_template('register.html',error = "Password does not match")
-        error = submit_user(username,password,email)
-        if error!=None:
-             return render_template('register.html',error = error)
-        return render_template('register.html',anouce = "Resgiter successfully. Returning to login page...")
+        status = submit_user(username,password,email)
+        if status!="User sign up sucessfully!":
+             return render_template('register.html',error = status)
+        return render_template('register.html',anouce = status)
     return render_template('register.html')
 
 # Route for the root URL ("/")
@@ -64,7 +64,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/static/images/<path:file_name>')
-def serve_image(file_name):
+def server_image(file_name):
     if allowed_file(file_name):
         return send_from_directory('static/images', file_name, mimetype=f'image/{file_name.rsplit(".", 1)[1]}')
     else:
