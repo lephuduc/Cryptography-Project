@@ -57,7 +57,7 @@ def signup():
         return json.dumps({"status":"The username should match this regular expression '^[a-zA-Z0-9_]{1,200}$'","status_code":500})
     user = User.query.filter_by(name=username).first()
     try:
-        attributes = "read:products,read:cart,edit:cart"
+        attributes = '{"user_role": "user","department": "None","location": "None"}'
         user = User(username, generate_password_hash(password),email,attributes)
         db.session.add(user)
         db.session.commit()
@@ -68,18 +68,18 @@ def signup():
 
 @app.route('/api/author', methods=['POST'])
 def author():
-    token_encoded = request.form.get('token')
+    token_encoded = request.headers["Authorization"]
+    if not token_encoded:
+        json.dumps({"status":"Missing credentials","status_code":401})
     token_data = jwt.decode(token_encoded,SECRET_KEY,ALGORITHM)
     username = token_data['username']
     exp = token_data['exp']
     if exp<datetime.timestamp(datetime.now()):
         return json.dumps({'status':"Session expired, please login again."})
-    user = User.query.filter_by(name=username).first()
-    token_data['attributes'] = user.attributes
-    dynamic_token = jwt.encode(token_data,SECRET_KEY,ALGORITHM)
-    ret = {"username":username,"token": dynamic_token}
-    return json.dumps(ret)
+    return json.dumps({"user":username})  
+
+
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
+    # with app.app_context():
+    #     db.create_all()
     app.run(host='0.0.0.0', port=5002)
