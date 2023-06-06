@@ -15,14 +15,14 @@
 <body>
     <header class="header">
 
-        <a href="./index.html" class="logo"> <i class="fas fa-gem"></i> Jelwery </a>
+        <a href="{{ url_for('main_page') }}" class="logo"> <i class="fas fa-gem"></i> Jelwery </a>
     
         <nav class="navbar">
             <a href="{{ url_for('main_page') }}" class="active">Home</a>
             <a href="{{ url_for('product_page') }}">Products</a>
             <a href="{{ url_for('about_page') }}">About</a>
             <a href="#arrivals">Arrivals</a>
-            <a href="./contact.html">Contact</a>
+            <a href="{{ url_for('contact_page') }}">Contact</a>
             <div class="blog-container">
                 <a href="#blogs">Blogs</a>
                 <div class="multi-level">
@@ -38,8 +38,8 @@
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>
             <div id="search-btn" class="fas fa-search"></div>
-            <a href="./cart.html" class="fas fa-shopping-cart"></a>
-            <a href="./signin.html" class="fas fa-user"></a>
+            <a href="{{ url_for('cart_page') }}" class="fas fa-shopping-cart"></a>
+            <a href="{{ url_for('login') }}" class="fas fa-user"></a>
         </div>
     
         <form action="" class="search-form">
@@ -48,21 +48,8 @@
         </form>
     
     </header>
-<!-- header section ends -->
     <div class="wrapper">
-        <!-- <header class="header-mobile">
-            <a href="./index.html" class="logo">Jelwery</a>
-            <button class="open-menu" id="open-menu">
-                <i class="bi bi-list"></i>
-            </button>
-        </header> -->
         <aside>
-            <!-- <button class="close-menu" id="close-menu">
-                <i class="bi bi-x"></i>
-            </button>
-            <header>
-                <a href="./index.html" class="logo">Jelwery</a>
-            </header> -->
             <nav>
                 <ul class="menu">
                     <li>

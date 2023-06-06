@@ -1,14 +1,24 @@
-from flask import Flask, jsonify, request, render_template, redirect, url_for, send_from_directory
+from flask import (Flask, 
+                   jsonify, 
+                   request, 
+                   render_template, 
+                   redirect, 
+                   url_for, 
+                   send_from_directory, 
+                   make_response,
+                   abort)
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
 from DatabaseQuery import validate_password,submit_user
+import requests
+import threading
+import subprocess
+from json import dumps, loads
 
 
 load_dotenv()
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRESSQL_URI")
-# db = SQLAlchemy(app)
 
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -72,8 +82,16 @@ def serve_image(file_name):
 
 @app.route('/about/', methods=['GET'])
 def about_page():
-    # TODO: query the data from about service api
-    return render_template('about.html', title="About us")
+    api_url = f"http://{os.getenv('ABOUT_SVC_ADDRESS')}/api/getAbout"
+    response = requests.get(api_url)
+    data = response.json()
+    return render_template('about.html', title="About us", about_list=loads(data))
+
+@app.route('/cart/', methods=['GET'])
+def cart_page():
+    if 
+    
+    return render_template('cart.html', title="Your cart")
 
 # Route for handling invalid URLs
 @app.errorhandler(404)
@@ -81,10 +99,15 @@ def page_not_found(error):
     # Redirect to the root URL ("/")
     return redirect(url_for('main_page'))
 
+@app.route("/api/v1/getAbout/", methods=['GET'])
+def get_about_api_handler():
+    api_url = f"http://{os.getenv('ABOUT_SVC_ADDRESS')}/api/getAbout"
+    
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        return response.json()
+    
+    return make_response("Not found", status=404)
 
 if __name__ == '__main__':
-    # with app.app_context():
-    #     db.drop_all()
-    #     db.create_all()
-    #     insert_about()
     app.run(host="0.0.0.0")

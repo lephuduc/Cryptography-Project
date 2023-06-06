@@ -12,6 +12,8 @@ RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
+RUN apt install -y curl
+
 COPY . /served_html_service
 
 EXPOSE 5001

@@ -21,13 +21,13 @@
 <section class="about" id="about" >
 
     <div class="content" data-aos="fade-right">
-
+        {% if about_list %}
             {% for about in about_list %}
-                <h3>{{ about.name }}</h3>
-                <p>{{ about.description }}</p>
-                <p>{{ about.email }}</p>
+                <h3 style="text-transform: none;">{{ about.name }}</h3>
+                <p style="text-transform: none;">{{ about.description }}</p>
+                <p style="text-transform: none;">{{ about.email }}</p>
             {% endfor %}
-
+        {% endif %}
     </div>
 
     <div class="commitment" data-aos="fade-left">

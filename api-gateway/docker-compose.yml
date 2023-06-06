@@ -1,8 +1,9 @@
 version: '3.9'
 services:
   served_html_service:
+    restart: always
     build:
-      context: .
+      context: ./gateway
       dockerfile: Dockerfile
     ports:
       - 8000:8000
