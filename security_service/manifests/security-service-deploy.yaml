@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: securityservice
+  labels:
+    app: securityservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: securityservice
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: securityservice
+    spec:
+      containers:
+        - name: securityservice
+          image: xuanhoangf/securityservice:lastest
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 5001
+          envFrom:
+            - configMapRef:
+                name: securityservice-configmap
+            - secretRef:
+                name: securityservice-secret
