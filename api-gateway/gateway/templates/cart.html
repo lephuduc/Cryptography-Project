@@ -7,7 +7,7 @@
     <title>Jelwery: My Shopping Cart</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/main.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- font awesome   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -23,7 +23,7 @@
             <nav class="navbar">
                 <a href="{{ url_for('main_page') }}" >Home</a>
                 <a href="{{ url_for('product_page') }}" class="active">Products</a>
-                <a href="./about.html">About</a>
+                <a href="{{ url_for('about_page') }}">About</a>
                 <a href="#arrivals">Arrivals</a>
                 <a href="./contact.html">Contact</a>
                 <div class="blog-container">
@@ -42,7 +42,7 @@
                 <div id="menu-btn" class="fas fa-bars"></div>
                 <div id="search-btn" class="fas fa-search"></div>
                 <a href="./cart.html" class="fas fa-shopping-cart"></a>
-                <a href="./signin.html" class="fas fa-user"></a>
+                <a href="{{ url_for('login') }}" class="fas fa-user"></a>
             </div>
         
             <form action="" class="search-form">
@@ -60,20 +60,21 @@
             <nav>
                 <ul>
                     <li>
-                        <a class="button-menu button-turn" href="./products.html">
+                        <a class="button-menu button-turn" href="{{ url_for('product_page') }}">
                             <i class="bi bi-arrow-return-left"></i> Continue Shopping
                         </a>
                     </li>
                     <li>
-                        <a class="button-menu button-cart active" href="./cart.html">
+                        <a class="button-menu button-cart active" href="{{ url_for('cart_page') }}">
                             <i class="bi bi-cart-fill"></i> Cart
                         </a>
                     </li>
                 </ul>
             </nav>
             <footer>
-                <p class="text-footer">Le Tuong Vy</p>
-                <p class="text-footer">Nguyen Ho Ngoc Han</p>
+                <p class="text-footer">Le Xuan Hoang</p>
+                <p class="text-footer">Le Phu Duc</p>
+                <p class="text-footer">Tran Cong Thanh</p>
             </footer>
         </aside>
         <div class="box_return">
@@ -111,8 +112,8 @@
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/cart.js"></script>
-    <script src="./js/menu.js"></script>
+    <script src="{{ url_for('static',filename='scripts/cart.js') }}"></script>
+    <script src="{{ url_for('static',filename='scripts/menu.js') }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
     AOS.init({

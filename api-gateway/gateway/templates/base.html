@@ -37,7 +37,7 @@
     <div class="icons">
         <div id="menu-btn" class="fas fa-bars"></div>
         <div id="search-btn" class="fas fa-search"></div>
-        <a href="./cart.html" class="fas fa-shopping-cart"></a>
+        <a href="{{ url_for('cart_page') }}" class="fas fa-shopping-cart"></a>
         <a href="{{ url_for('login') }}" class="fas fa-user"></a>
     </div>
 
@@ -69,11 +69,11 @@
 
         <div class="box" data-aos="fade-down">
             <h3>quick links</h3>
-            <a href="./index.html"> <i class="fas fa-arrow-right"></i> home </a>
-            <a href="./products.html"> <i class="fas fa-arrow-right"></i> products </a>
-            <a href="./about.html"> <i class="fas fa-arrow-right"></i> about </a>
+            <a href="{{ url_for('main_page') }}"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="{{ url_for('product_page') }}"> <i class="fas fa-arrow-right"></i> products </a>
+            <a href="{{ url_for('about_page') }}"> <i class="fas fa-arrow-right"></i> about </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> arrivals </a>
-            <a href="./contact.html"> <i class="fas fa-arrow-right"></i> contact </a>
+            <a href="{{ url_for('contact_page') }}"> <i class="fas fa-arrow-right"></i> contact </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> blogs </a>
         </div>
 
@@ -82,7 +82,7 @@
             <a href="tel: 0123456789"> <i class="fas fa-phone"></i> 0123456789 </a>
             <a href="tel: 0123456790"> <i class="fas fa-phone"></i> 0123456790 </a>
             <a href="mailto: 2152xxxx@gm.uit.edu.vn"> <i class="fas fa-envelope"></i> 2152xxxx@gm.uit.edu.vn </a>
-            <a href="#contact"> <i class="fas fa-ring"></i> Thu Duc, HCM </a>
+            <a href="{{ url_for('contact_page') }}"> <i class="fas fa-ring"></i> Thu Duc, HCM </a>
         </div>
 
         <div class="box" data-aos="fade-left">

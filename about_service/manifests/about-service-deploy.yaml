@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aboutservice
+  labels:
+    app: aboutservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aboutservice
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: aboutservice
+    spec:
+      containers:
+        - name: aboutservice
+          image: xuanhoangf/aboutservice:lastest
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 5001
+          envFrom:
+            - configMapRef:
+                name: aboutservice-configmap
+            - secretRef:
+                name: aboutservice-secret

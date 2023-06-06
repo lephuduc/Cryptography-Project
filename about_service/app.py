@@ -1,12 +1,13 @@
 from flask import Flask, jsonify, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import inspect
-from dotenv import load_dotenv
 import os
 import json
 from models import *
+from dotenv import load_dotenv
 
 load_dotenv()
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRESSQL_URI")
 db.init_app(app)
