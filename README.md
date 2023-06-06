@@ -50,8 +50,8 @@ By using ABAC to define access control policies based on user attributes, the fi
 |Resources| |
 | :------------ |:---------------|
 | Cloud | Deploy server, database storage |
-| Database |  SQLite3 |
-| Libraries | Flask, Flask-abac | 
+| Database |  ElephantSQL |
+| Libraries | Flask, OPA | 
 | Hardware | Intel core I5, RAM 16GB |
 | Programing languages | Python, HTML, CSS, Javascript |
 ## Contributor

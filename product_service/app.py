@@ -1,16 +1,10 @@
-from flask import Flask, request, render_template, redirect, abort, url_for, send_from_directory, make_response
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
-from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime, timedelta
 from models import *
 import os
 import json
-import re
-import jwt
-from conf import settings
 from operator import itemgetter
-import time
 
 load_dotenv()
 app = Flask(__name__)
@@ -19,7 +13,7 @@ db.init_app(app)
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 
-# @app.route('/api/createdb',methods=['GET'])
+# @app.route('/product/api/createdb',methods=['GET'])
 # def createdb():
 #     product1 = Products(id='DI001',name='Diamond 01', price='1000', sold='20', desc='This is a diamond', category='Diamond',date=datetime(2023, 5, 26, 16, 25, 55))
 #     product2 = Products(id='GO001',name='Gold 01', price='500', sold='99', desc='This is gold', category='Gold')
@@ -28,7 +22,7 @@ ALGORITHM = os.getenv("ALGORITHM")
 #     db.session.commit()
 #     return json.dumps({"return":"added to database"})
 
-@app.route('/api/insert_product', methods=['POST'])
+@app.route('/product/api/insert_product', methods=['POST'])
 def insert_product():
     products_json = request.get_json()
 
@@ -54,7 +48,31 @@ def insert_product():
 
     return json.dumps({"status":"Products inserted successfully","status_code":"200"})
 
-@app.route('/api/allproduct',methods=['GET'])
+@app.route('/product/api/delete_product', methods=['POST'])
+def delete_product():
+    products_json = request.get_json()
+    status = []
+    if not isinstance(products_json, list):
+        return json.dumps({"status":"Invalid payload format. Expected a list of id of products","status_code":"400"})
+
+    for product_ids in products_json:
+        try:
+            get_id=product_ids.get('id')
+            product_query = Products.query.get(get_id)
+            print(product_query)
+            if(product_query == None):
+                raise Exception
+            else:
+                Products.query.filter_by(id=get_id).delete()
+                status.append({"status":f"Product ID {get_id} deleted successfully","status_code":"200"})
+        except:
+            status.append({"status":f"Product ID {get_id} not found","status_code":"404"})
+        
+        db.session.commit()
+
+    return status
+
+@app.route('/product/api/allproduct',methods=['GET'])
 def get_all_products():
     products = Products.query.all()
     product_list  = [product.__dict__ for product in products]
@@ -63,7 +81,7 @@ def get_all_products():
     print(product_list)
     return json.dumps(product_list,default=str)
 
-@app.route('/api/bestseller',methods=['GET'])
+@app.route('/product/api/bestseller',methods=['GET'])
 def get_best_seller():
     products = Products.query.all()
     product_list  = [product.__dict__ for product in products]
@@ -73,7 +91,7 @@ def get_best_seller():
     print(best_seller_list)
     return json.dumps(best_seller_list,default=str)
 
-@app.route('/api/newest',methods=['GET'])
+@app.route('/product/api/newest',methods=['GET'])
 def get_new():
     products = Products.query.all()
     product_list  = [product.__dict__ for product in products]
