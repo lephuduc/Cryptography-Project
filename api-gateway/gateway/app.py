@@ -86,9 +86,7 @@ def about_page():
     return render_template('about.html', title="About us", about_list=loads(data))
 
 @app.route('/cart/', methods=['GET'])
-def cart_page():
-    if 
-    
+def cart_page():    
     return render_template('cart.html', title="Your cart")
 
 # Route for handling invalid URLs
