@@ -23,7 +23,7 @@ spec:
           image: xuanhoangf/securityservice:lastest
           imagePullPolicy: "Always"
           ports:
-            - containerPort: 5001
+            - containerPort: 5002
           envFrom:
             - configMapRef:
                 name: securityservice-configmap
