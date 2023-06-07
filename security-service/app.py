@@ -64,11 +64,12 @@ def signup():
     except Exception as e:
         print(e)
         return json.dumps({"status":"Username already taken"})
-    return json.dumps({"status":"User sign up sucessfully!"})
+    return json.dumps({"status":"User sign up sucessfully, please return to login"})
 
 @app.route('/api/author', methods=['POST'])
 def author():
-    token_encoded = request.headers["Authorization"]
+    cookies = request.cookies
+    token_encoded = cookies.get('session_token')
     if not token_encoded:
         json.dumps({"status":"Missing credentials","status_code":401})
     token_data = jwt.decode(token_encoded,SECRET_KEY,ALGORITHM)

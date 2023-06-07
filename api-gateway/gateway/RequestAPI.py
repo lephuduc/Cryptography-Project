@@ -16,9 +16,9 @@ def validate_password(username, password):
     req = requests.post(URL_SECURITY_SERVICE+"/api/signin",data=data)
     respone = req.json()
     try:
-        token = respone['token']
-        username = respone['username']
-        print(respone)
-        return True
+        return respone
+        # token = respone['token']
+        # username = respone['username']
+        # print(respone)
     except:
         return False
