@@ -20,4 +20,4 @@ RUN chmod +x opa
 
 EXPOSE 8181
 
-CMD "gunicorn3 --bind 0.0.0.0:8181 app:app"
+CMD ["gunicorn3", "--bind", "0.0.0.0:8181", "app:app"]

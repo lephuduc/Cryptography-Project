@@ -6,10 +6,13 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "fales"
     #nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "1024m"
 spec:
+  tls:
+    - secretName: gateway-certificate
   rules:
-    - host: mp3converter.com
+    - host: enkai.id.vn
       http:
         paths:
           - path: /
@@ -18,4 +21,4 @@ spec:
               service:
                 name: gateway
                 port:
-                  number: 8080
+                  number: 8000
