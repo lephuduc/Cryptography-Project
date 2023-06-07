@@ -22,11 +22,16 @@ app = Flask(__name__)
 def login():
     if request.method=='POST':
         username,password = request.form["username"], request.form["password"]
-        if not validate_password(username,password):
+        check_respone = validate_password(username,password)
+        if not check_respone:
             error_msg = "Invalid password or username"
             return render_template('login.html',error = error_msg)
         else:
-            return redirect(url_for('main_page'))
+            token = check_respone['token']
+            username = check_respone['username']
+            response = make_response(render_template('login.html',anouce = 'User sign in successfully'))
+            response.set_cookie('session_token',value=token,max_age=3600)
+            return response
     return render_template('login.html')
 
 @app.route('/register',methods=['GET','POST'])
@@ -37,15 +42,15 @@ def register():
         if retype_password!=password:
             return render_template('register.html',error = "Password does not match")
         status = submit_user(username,password,email)
-        if status!="User sign up sucessfully!":
-             return render_template('register.html',error = status)
+        if status!="User sign up sucessfully, please return to login":
+            return render_template('register.html',error = status)
         return render_template('register.html',anouce = status)
     return render_template('register.html')
 
 # Route for the root URL ("/")
 @app.route('/', methods=['GET'])
 def main_page():
-    return render_template('index.html', title="Shop")
+    return render_template('index.html', title="Jelwery")
 
 # Route for /products/
 @app.route('/products/', methods=['GET'])
