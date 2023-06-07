@@ -1,6 +1,8 @@
 import requests
+import os
+
 # config URL here
-URL_SECURITY_SERVICE = 'http://187.125.84.102:5002'
+URL_SECURITY_SERVICE = f'http://{os.getenv("SECURITY_SVC_ADDRESS")}'
 
 def submit_user(username,password,email):
     data = {"username":username,"password":password,"email":email}

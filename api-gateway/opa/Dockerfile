@@ -19,3 +19,5 @@ RUN wget -q -O opa https://github.com/open-policy-agent/opa/releases/download/v0
 RUN chmod +x opa
 
 EXPOSE 8181
+
+CMD ["gunicorn3", "--bind", "0.0.0.0:8181", "app:app"]

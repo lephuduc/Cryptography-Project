@@ -16,4 +16,6 @@ RUN apt install -y curl
 
 COPY . /served_html_service
 
-EXPOSE 5001
+EXPOSE 8000
+
+CMD  ["gunicorn3", "--bind", "0.0.0.0:8000", "app:app"]
