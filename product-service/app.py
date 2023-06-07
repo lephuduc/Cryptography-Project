@@ -22,7 +22,7 @@ ALGORITHM = os.getenv("ALGORITHM")
 #     db.session.commit()
 #     return json.dumps({"return":"added to database"})
 
-@app.route('/product/api/insert_product', methods=['POST'])
+@app.route('/api/insert_product', methods=['POST'])
 def insert_product():
     products_json = request.get_json()
 
@@ -48,7 +48,7 @@ def insert_product():
 
     return json.dumps({"status":"Products inserted successfully","status_code":"200"})
 
-@app.route('/product/api/delete_product', methods=['POST'])
+@app.route('/api/delete_product', methods=['POST'])
 def delete_product():
     products_json = request.get_json()
     status = []
@@ -72,7 +72,7 @@ def delete_product():
 
     return status
 
-@app.route('/product/api/allproduct',methods=['GET'])
+@app.route('/api/allproduct',methods=['GET'])
 def get_all_products():
     products = Products.query.all()
     product_list  = [product.__dict__ for product in products]
@@ -81,7 +81,7 @@ def get_all_products():
     print(product_list)
     return json.dumps(product_list,default=str)
 
-@app.route('/product/api/bestseller',methods=['GET'])
+@app.route('/api/bestseller',methods=['GET'])
 def get_best_seller():
     products = Products.query.all()
     product_list  = [product.__dict__ for product in products]
@@ -91,7 +91,7 @@ def get_best_seller():
     print(best_seller_list)
     return json.dumps(best_seller_list,default=str)
 
-@app.route('/product/api/newest',methods=['GET'])
+@app.route('/api/newest',methods=['GET'])
 def get_new():
     products = Products.query.all()
     product_list  = [product.__dict__ for product in products]

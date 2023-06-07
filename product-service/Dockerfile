@@ -1,6 +1,6 @@
 FROM python:3.10.11
 
-WORKDIR /product_service
+WORKDIR /product-service
 
 COPY requirements.txt .
 
