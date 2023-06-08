@@ -1,4 +1,6 @@
-FROM python:3.10.11
+FROM ubuntu:22.04
+
+RUN apt-get update && apt install -y gunicorn3 python3-pip libpq-dev
 
 WORKDIR /product-service
 
@@ -10,4 +12,6 @@ COPY . /product-service
 
 EXPOSE 5003
 
-CMD  ["gunicorn3", "--bind", "0.0.0.0:5003", "app:app"]
+
+CMD ["gunicorn3", "--bind", "0.0.0.0:5003", "app:app"]
+
