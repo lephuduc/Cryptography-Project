@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 import os
 import requests
 from json import dumps, loads
-from RequestAPI import validate_password,submit_user
+from RequestAPI import validate_password,submit_user,is_logged_in
 
 
 load_dotenv()
@@ -20,6 +20,10 @@ app = Flask(__name__)
 
 @app.route('/login',methods=['GET','POST'])
 def login():
+    cookies = request.cookies
+    token_encoded = cookies.get('session_token')
+    if is_logged_in(token_encoded):
+        return render_template('login.html',anouce = 'User already logged in')
     if request.method=='POST':
         username,password = request.form["username"], request.form["password"]
         check_respone = validate_password(username,password)
