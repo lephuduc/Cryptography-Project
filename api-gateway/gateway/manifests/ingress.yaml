@@ -7,7 +7,6 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
     nginx.ingress.kubernetes.io/ssl-passthrough: "fales"
-    #nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "1024m"
 spec:
   tls:
     - secretName: gateway-certificate

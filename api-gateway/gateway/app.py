@@ -114,5 +114,28 @@ def get_about_api_handler():
     
     return make_response("Not found", status=404)
 
+@app.route("/api/v1/updateAbout", methods=["POST"])
+def update_about_api_handler():
+    # Authentication
+    ## /api/author
+    cookie = request.cookies
+    authResponse = requests.post(f"http://{os.getenv('SECURITY_SVC_ADDRESS')}/api/author")
+    if authResponse.status_code in (401, 422, 440):
+        return authResponse
+    
+    # Authorization
+    ## /api/v1/opa
+    dataOpa = authResponse.json()
+    opaUri = f"http://{os.getenv('OPA_SVC_ADDRESS')}/api/v1/opa"
+    opaResponse = requests.post(opaUri, data=dataOpa)
+    jsonOpa = opaResponse.json()
+    if jsonOpa["result"] == "true":
+        aboutSVCResponse = requests.post(f"http://{os.getenv('ABOUT_SVC_ADDRESS')}/api/updateAbout",
+                                         data=request.json)    
+    
+        return aboutSVCResponse
+    else:
+        return jsonify({"result": "Your are not allowed to update"})
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
