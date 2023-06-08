@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from models import *
@@ -8,9 +8,10 @@ from operator import itemgetter
 
 load_dotenv()
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRESSQL_URI_PRODUCT")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRESSQL_URI")
 db.init_app(app)
-
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
 
 @app.route('/api/insert_product', methods=['POST'])
 def insert_product():
@@ -20,23 +21,24 @@ def insert_product():
         return json.dumps({"status":"Invalid payload format. Expected a list of products","status_code":"400"})
 
     new_products = []
+    status = []
     for product in products_json:
         try:
             new_product = Products(
                 id=product.get('id'),
                 title=product.get('title'),
+                image=product.get('image'),
                 price=product.get('price'),
-                desc=product.get('desc'),
-                category=product.get('category')
+                category=str(product.get('category')).replace("'",'"')
             )
             new_products.append(new_product)
         except:
-            json.dumps({"status":"Product ID is already taken","status_code":"400"})
+            status.append({"status":f"Bad Req {id}","status_code":"400"})
     
     db.session.add_all(new_products)
     db.session.commit()
-
-    return json.dumps({"status":"Products inserted successfully","status_code":"200"})
+    status.append({"status":"Products inserted successfully","status_code":"200"})
+    return json.dumps(status)
 
 @app.route('/api/delete_product', methods=['POST'])
 def delete_product():
@@ -68,28 +70,27 @@ def get_all_products():
     product_list  = [product.__dict__ for product in products]
     for product in product_list:
         product.pop('_sa_instance_state')
-    print(product_list)
     return json.dumps(product_list,default=str)
 
-@app.route('/api/bestseller',methods=['GET'])
-def get_best_seller():
-    products = Products.query.all()
-    product_list  = [product.__dict__ for product in products]
-    for product in product_list:
-        product.pop('_sa_instance_state')
-    best_seller_list = sorted(product_list, key=itemgetter('sold'),reverse=True)
-    print(best_seller_list)
-    return json.dumps(best_seller_list,default=str)
+# @app.route('/api/bestseller',methods=['GET'])
+# def get_best_seller():
+#     products = Products.query.all()
+#     product_list  = [product.__dict__ for product in products]
+#     for product in product_list:
+#         product.pop('_sa_instance_state')
+#     best_seller_list = sorted(product_list, key=itemgetter('sold'),reverse=True)
+#     print(best_seller_list)
+#     return json.dumps(best_seller_list,default=str)
 
-@app.route('/api/newest',methods=['GET'])
-def get_new():
-    products = Products.query.all()
-    product_list  = [product.__dict__ for product in products]
-    for product in product_list:
-        product.pop('_sa_instance_state')
-    best_seller_list = sorted(product_list, key=itemgetter('date'),reverse=True)
-    print(best_seller_list)
-    return json.dumps(best_seller_list,default=str)
+# @app.route('/api/newest',methods=['GET'])
+# def get_new():
+#     products = Products.query.all()
+#     product_list  = [product.__dict__ for product in products]
+#     for product in product_list:
+#         product.pop('_sa_instance_state')
+#     best_seller_list = sorted(product_list, key=itemgetter('date'),reverse=True)
+#     print(best_seller_list)
+#     return json.dumps(best_seller_list,default=str)
 
 if __name__ == '__main__':
     # with app.app_context():
