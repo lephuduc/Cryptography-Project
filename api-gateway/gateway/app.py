@@ -59,6 +59,11 @@ def main_page():
 # Route for /products/
 @app.route('/products/', methods=['GET'])
 def product_page():
+    api_url = f"http://{os.getenv('PRODUCT_SVC_ADDRESS')}/api/allproduct"
+    products = requests.get(api_url).json()
+    file_path = f"./static/json/products.json"
+    with open(file_path,'w') as f:
+        f.write(products)
     return render_template('products.html', title="Products")
 
 # Route for /contact
