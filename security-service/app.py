@@ -62,6 +62,7 @@ def signup():
         db.session.add(user)
         db.session.commit()
     except Exception as e:
+        print(e)
         return json.dumps({"status":"Username already taken"})
     return json.dumps({"status":"User sign up sucessfully, please return to login"})
 
@@ -81,6 +82,7 @@ def author():
         return jsonify({'status':"Session expired, please login again", "status_code": 440})
     return jsonify({"user":username})  
     
+
 
 if __name__ == '__main__':
     # with app.app_context():
