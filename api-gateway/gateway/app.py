@@ -11,7 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
 import requests
-from json import dumps, loads
+from json import dumps, loads, dump
 from RequestAPI import validate_password,submit_user,is_logged_in
 
 
@@ -60,10 +60,16 @@ def main_page():
 @app.route('/products/', methods=['GET'])
 def product_page():
     api_url = f"http://{os.getenv('PRODUCT_SVC_ADDRESS')}/api/allproduct"
-    products = requests.get(api_url).json()
+    req = requests.get(api_url)
+    products =  req.json()
+    
+    for product in products:
+        print(loads(product['category']))
+        print('ok')
+        product['category'] = loads(product['category'])
+    print(products)
     file_path = f"./static/json/products.json"
-    with open(file_path,'w') as f:
-        f.write(products)
+    dump(products, open(file_path,'w'))
     return render_template('products.html', title="Products")
 
 # Route for /contact
@@ -143,7 +149,7 @@ def update_about_api_handler():
     else:
         return jsonify({"result": "Your are not allowed to update"})
 
-@app.route("/api/v1/allproduct", methods=["POST"])
+@app.route("/api/v1/allproduct", methods=["GET"])
 def get_all_product_api_handler():
     # Authentication
     ## /api/author
@@ -155,5 +161,43 @@ def get_all_product_api_handler():
     response = requests.get(f"http://{os.getenv('PRODUCT_SVC_ADDRESS')}/api/allproduct")
     return response
 
+@app.route("/api/v1/insert_product", methods=["POST"])
+def insert_product_api_handler():
+    cookie = request.cookies
+    authResponse = requests.post(f"http://{os.getenv('SECURITY_SVC_ADDRESS')}/api/author", cookies=cookie)
+    if authResponse.status_code in (401, 422, 440):
+        return authResponse
+    
+    #authorize
+    dataOpa = authResponse.json()
+    opaUri = f"http://{os.getenv('OPA_SVC_ADDRESS')}/api/v1/opa"
+    opaResponse = requests.post(opaUri, data=dataOpa)
+    jsonOpa = opaResponse.json()
+    if jsonOpa["result"] == "true":
+        insertSVCResponse = requests.post(f"http://{os.getenv('PRODUCT_SVC_ADDRESS')}/api/insert_product",
+                                         data=request.json)    
+        return insertSVCResponse
+    else:
+        return jsonify({"result": "Your are not allowed to insert products"})
+    
+@app.route("/api/v1/delete_product", methods=["POST"])
+def delete_product_api_handler():
+    cookie = request.cookies
+    authResponse = requests.post(f"http://{os.getenv('SECURITY_SVC_ADDRESS')}/api/author", cookies=cookie)
+    if authResponse.status_code in (401, 422, 440):
+        return authResponse
+    
+    #authorize
+    dataOpa = authResponse.json()
+    opaUri = f"http://{os.getenv('OPA_SVC_ADDRESS')}/api/v1/opa"
+    opaResponse = requests.post(opaUri, data=dataOpa)
+    jsonOpa = opaResponse.json()
+    if jsonOpa["result"] == "true":
+        insertSVCResponse = requests.post(f"http://{os.getenv('PRODUCT_SVC_ADDRESS')}/api/insert_product",
+                                         data=request.json)    
+        return insertSVCResponse
+    else:
+        return jsonify({"result": "Your are not allowed to delete products"})
+    
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
