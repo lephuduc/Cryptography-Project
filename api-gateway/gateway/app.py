@@ -100,6 +100,7 @@ def page_not_found(error):
     # Redirect to the root URL ("/")
     return redirect(url_for('main_page'))
 
+## About service
 @app.route("/api/v1/getAbout/", methods=['GET'])
 def get_about_api_handler():
     api_url = f"http://{os.getenv('ABOUT_SVC_ADDRESS')}/api/getAbout"
@@ -115,7 +116,7 @@ def update_about_api_handler():
     # Authentication
     ## /api/author
     cookie = request.cookies
-    authResponse = requests.post(f"http://{os.getenv('SECURITY_SVC_ADDRESS')}/api/author")
+    authResponse = requests.post(f"http://{os.getenv('SECURITY_SVC_ADDRESS')}/api/author", cookies=cookie)
     if authResponse.status_code in (401, 422, 440):
         return authResponse
     
@@ -132,6 +133,18 @@ def update_about_api_handler():
         return aboutSVCResponse
     else:
         return jsonify({"result": "Your are not allowed to update"})
+
+@app.route("/api/v1/allproduct", methods=["POST"])
+def get_all_product_api_handler():
+    # Authentication
+    ## /api/author
+    cookie = request.cookies
+    authResponse = requests.post(f"http://{os.getenv('SECURITY_SVC_ADDRESS')}/api/author", cookies=cookie)
+    if authResponse.status_code in (401, 422, 440):
+        return authResponse
+    
+    response = requests.get(f"http://{os.getenv('PRODUCT_SVC_ADDRESS')}/api/allproduct")
+    return response
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
