@@ -9,4 +9,4 @@ services:
     ports:
       - 5003:5003
     volumes:
-      - .:/product_service
+      - .:/product-service

@@ -12,4 +12,6 @@ COPY . /product-service
 
 EXPOSE 5003
 
+
 CMD ["gunicorn3", "--bind", "0.0.0.0:5003", "app:app"]
+

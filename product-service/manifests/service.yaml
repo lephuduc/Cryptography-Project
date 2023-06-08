@@ -4,9 +4,9 @@ metadata:
   name: productservice
 spec:
   selector:
-    app: aboutservice
+    app: productservice
   type: ClusterIP
   ports:
-    - port: 5002
-      targetPort: 5002
+    - port: 5003
+      targetPort: 5003
       protocol: TCP
