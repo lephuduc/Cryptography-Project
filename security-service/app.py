@@ -62,6 +62,7 @@ def signup():
         db.session.add(user)
         db.session.commit()
     except Exception as e:
+        print(e)
         return json.dumps({"status":"Username already taken"})
     return json.dumps({"status":"User sign up sucessfully, please return to login"})
 
@@ -71,16 +72,13 @@ def author():
     token_encoded = cookies.get('session_token')
     if not token_encoded:
         json.dumps({"status":"Missing credentials","status_code":401})
-    try:
-        token_data = jwt.decode(token_encoded,SECRET_KEY,ALGORITHM)
-    except:
-        return json.dumps({'status':"Signature verification failed"})
+    token_data = jwt.decode(token_encoded,SECRET_KEY,ALGORITHM)
     username = token_data['username']
     exp = token_data['exp']
     if exp<datetime.timestamp(datetime.now()):
-        return json.dumps({'status':"Session expired, please login again"})
+        return json.dumps({'status':"Session expired, please login again."})
     return json.dumps({"user":username})  
-    
+
 
 if __name__ == '__main__':
     # with app.app_context():
