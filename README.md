@@ -58,8 +58,8 @@ By using ABAC to define access control policies based on user attributes, the fi
 
 | Full name  | ID  | Github | Front-end | Cloud | WebAPI | ABAC | API Gateway | Slide | Presentation | 
 | :--------- |:---:|:-------:|:--------:|:-----:|:------:|:-----|:-----------:|:-----:|:------------:|
-| Le Xuan Hoang    |   21522090      | [Jinn](https://github.com/lephuduc)   |✅|✅||||||
-| Le Phu Duc | 21521962        | [Enkai](https://github.com/LaiLaK918) |   |✅|✅|✅|✅||✅|
+| Le Phu Duc    |   21521962      | [Jinn](https://github.com/lephuduc)   |✅||✅|✅|✅|||
+| Le Xuan Hoang | 21522090        | [Enkai](https://github.com/LaiLaK918) |   |✅|✅|✅|✅||✅|
 | Tran Cong Thanh  | 21521450     | [PkNova](https://github.com/PkNova76) |✅||✅|✅||✅||
 
 # References
