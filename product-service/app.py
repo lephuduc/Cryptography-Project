@@ -8,7 +8,7 @@ from operator import itemgetter
 
 load_dotenv()
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRESSQL_URI")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRESSQL_URI_PRODUCT")
 db.init_app(app)
 
 

@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "fales"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
 spec:
   tls:
     - secretName: gateway-certificate

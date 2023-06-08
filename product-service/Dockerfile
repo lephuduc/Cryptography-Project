@@ -8,7 +8,7 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY . /product_service
+COPY . /product-service
 
 EXPOSE 5003
 
