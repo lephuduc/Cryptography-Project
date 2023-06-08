@@ -6,8 +6,8 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY . /product_service
+COPY . /product-service
 
 EXPOSE 5003
 
-CMD ["python3", "app.py"]
+CMD  ["gunicorn3", "--bind", "0.0.0.0:5003", "app:app"]
