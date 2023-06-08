@@ -5,7 +5,8 @@ db = SQLAlchemy()
 
 class Products(db.Model):
     id = db.Column(db.String(5), primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
+    title = db.Column(db.String(100), nullable=False)
+    image = db.Column(db.string(500),nullable=True)
     price = db.Column(db.Integer, nullable=False)
     desc = db.Column(db.String(), nullable=True)
     category = db.Column(db.String(50), nullable=False)

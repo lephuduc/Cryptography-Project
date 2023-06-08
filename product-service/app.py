@@ -15,8 +15,8 @@ ALGORITHM = os.getenv("ALGORITHM")
 
 # @app.route('/product/api/createdb',methods=['GET'])
 # def createdb():
-#     product1 = Products(id='DI001',name='Diamond 01', price='1000', sold='20', desc='This is a diamond', category='Diamond',date=datetime(2023, 5, 26, 16, 25, 55))
-#     product2 = Products(id='GO001',name='Gold 01', price='500', sold='99', desc='This is gold', category='Gold')
+#     product1 = Products(id='DI001',title='Diamond 01', price='1000', sold='20', desc='This is a diamond', category='Diamond',date=datetime(2023, 5, 26, 16, 25, 55))
+#     product2 = Products(id='GO001',title='Gold 01', price='500', sold='99', desc='This is gold', category='Gold')
 #     db.session.add(product1)
 #     db.session.add(product2)
 #     db.session.commit()
@@ -34,7 +34,7 @@ def insert_product():
         try:
             new_product = Products(
                 id=product.get('id'),
-                name=product.get('name'),
+                title=product.get('title'),
                 price=product.get('price'),
                 desc=product.get('desc'),
                 category=product.get('category')
