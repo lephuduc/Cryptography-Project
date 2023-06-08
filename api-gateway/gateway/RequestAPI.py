@@ -3,7 +3,6 @@ import os
 
 # config URL here
 URL_SECURITY_SERVICE = f'http://{os.getenv("SECURITY_SVC_ADDRESS")}'
-URL_SECURITY_SERVICE = 'http://187.125.84.102:5002'
 def submit_user(username,password,email):
     data = {"username":username,"password":password,"email":email}
     req = requests.post(URL_SECURITY_SERVICE+"/api/signup",data=data)

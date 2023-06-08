@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, abort, url_for, send_from_directory, make_response
+from flask import Flask, request, render_template, redirect, abort, url_for, send_from_directory, make_response, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -71,13 +71,17 @@ def author():
     cookies = request.cookies
     token_encoded = cookies.get('session_token')
     if not token_encoded:
-        json.dumps({"status":"Missing credentials","status_code":401})
-    token_data = jwt.decode(token_encoded,SECRET_KEY,ALGORITHM)
+        return jsonify({"status":"Missing credentials","status_code":401})
+    try:
+        token_data = jwt.decode(token_encoded,SECRET_KEY,ALGORITHM)
+    except:
+        return jsonify({'status':"Signature verification failed", "status_code": 422})
     username = token_data['username']
     exp = token_data['exp']
     if exp<datetime.timestamp(datetime.now()):
-        return json.dumps({'status':"Session expired, please login again."})
-    return json.dumps({"user":username})  
+        return jsonify({'status':"Session expired, please login again", "status_code": 440})
+    return jsonify({"user":username})  
+    
 
 
 if __name__ == '__main__':
