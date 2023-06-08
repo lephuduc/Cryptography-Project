@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from models import *
@@ -10,17 +10,7 @@ load_dotenv()
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRESSQL_URI")
 db.init_app(app)
-SECRET_KEY = os.getenv("SECRET_KEY")
-ALGORITHM = os.getenv("ALGORITHM")
 
-# @app.route('/product/api/createdb',methods=['GET'])
-# def createdb():
-#     product1 = Products(id='DI001',title='Diamond 01', price='1000', sold='20', desc='This is a diamond', category='Diamond',date=datetime(2023, 5, 26, 16, 25, 55))
-#     product2 = Products(id='GO001',title='Gold 01', price='500', sold='99', desc='This is gold', category='Gold')
-#     db.session.add(product1)
-#     db.session.add(product2)
-#     db.session.commit()
-#     return json.dumps({"return":"added to database"})
 
 @app.route('/api/insert_product', methods=['POST'])
 def insert_product():
