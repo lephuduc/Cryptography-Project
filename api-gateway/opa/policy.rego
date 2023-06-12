@@ -23,3 +23,8 @@ allow {
     user.user_role == "manager"
     user.department == resource_attributes["About"].resource_department
 }
+
+allow {
+    user := user_attributes[input.user]
+    input.operation == user.tags[_]
+}

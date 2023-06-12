@@ -21,6 +21,10 @@ spec:
       containers:
         - name: gateway
           image: xuanhoangf/gateway:lastest
+          ports:
+            - name: gateway
+              containerPort: 8000
+              protocol: TCP
           envFrom:
             - configMapRef:
                 name: gateway-configmap

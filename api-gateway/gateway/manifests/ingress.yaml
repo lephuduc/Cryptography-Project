@@ -1,3 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  labels:
+    app: gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+        - name: gateway
+          image: xuanhoangf/gateway:lastest
+          ports:
+            - name: gateway
+              containerPort: 8000
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: gateway-configmap
+            - secretRef:
+                name: gateway-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: gateway
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -8,8 +55,11 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
     nginx.ingress.kubernetes.io/ssl-passthrough: "false"
 spec:
+  ingressClassName: nginx
   tls:
     - secretName: gateway-certificate
+      hosts:
+        - enkai.id.vn
   rules:
     - host: enkai.id.vn
       http:
@@ -18,6 +68,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: gateway
+                name: gateway-service
                 port:
-                  number: 8000
+                  number: 80

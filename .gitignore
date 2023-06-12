@@ -1,5 +1,6 @@
 .env
 __pycache__/
 venv/
-secret.yaml
+*secret.yaml
 enkai.id.vn/
+*.rar
