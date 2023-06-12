@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gateway-configmap
+data:
+  ABOUT_SVC_ADDRESS: "aboutservice.default.svc.cluster.local:5001"
+  SECURITY_SVC_ADDRESS: "securityservice.default.svc.cluster.local:5002"
+  PRODUCT_SVC_ADDRESS: "productservice.default.svc.cluster.local:5003"
+  OPA_SVC_ADDRESS: "opa.default.svc.cluster.local:5003"

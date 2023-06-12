@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opa
+  labels:
+    app: opa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: opa
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: opa
+    spec:
+      containers:
+        - name: opa
+          image: xuanhoangf/opa:lastest
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 8181
+          envFrom:
+            - configMapRef:
+                name: opa-configmap
+            - secretRef:
+                name: opa-secret

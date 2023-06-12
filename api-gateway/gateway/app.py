@@ -138,6 +138,8 @@ def update_about_api_handler():
     # Authorization
     ## /api/v1/opa
     dataOpa = authResponse.json()
+    dataOpa['operation'] = 'updateInformation'
+    
     opaUri = f"http://{os.getenv('OPA_SVC_ADDRESS')}/api/v1/opa"
     opaResponse = requests.post(opaUri, data=dataOpa)
     jsonOpa = opaResponse.json()
@@ -170,6 +172,8 @@ def insert_product_api_handler():
     
     #authorize
     dataOpa = authResponse.json()
+    dataOpa['operation'] = 'insertProduct'
+    
     opaUri = f"http://{os.getenv('OPA_SVC_ADDRESS')}/api/v1/opa"
     opaResponse = requests.post(opaUri, data=dataOpa)
     jsonOpa = opaResponse.json()
@@ -189,6 +193,8 @@ def delete_product_api_handler():
     
     #authorize
     dataOpa = authResponse.json()
+    dataOpa['operation'] = 'deleteProduct'
+    
     opaUri = f"http://{os.getenv('OPA_SVC_ADDRESS')}/api/v1/opa"
     opaResponse = requests.post(opaUri, data=dataOpa)
     jsonOpa = opaResponse.json()

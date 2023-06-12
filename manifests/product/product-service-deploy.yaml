@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productservice
+  labels:
+    app: productservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productservice
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: productservice
+    spec:
+      containers:
+        - name: productservice
+          image: xuanhoangf/productservice:lastest
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 5003
+          envFrom:
+            - configMapRef:
+                name: productservice-configmap
+            - secretRef:
+                name: productservice-secret
